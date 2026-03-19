@@ -8,11 +8,10 @@ metadata:
     scenarios.ai.sap.com/description: "Hello scenario test"
     executables.ai.sap.com/name: "hello-train"
     executables.ai.sap.com/description: "Hello workflow executable"
-
-labels:
-  scenarios.ai.sap.com/id: "hello-ai"
-  ai.sap.com/version: "1.0.0"
-  ai.sap.com/resourcePlan: "starter"
+  labels:
+    scenarios.ai.sap.com/id: "hello-ai"
+    ai.sap.com/version: "1.0.0"
+    ai.sap.com/resourcePlan: "starter"
 
 spec:
   entrypoint: main
