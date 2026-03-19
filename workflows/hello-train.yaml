@@ -5,9 +5,9 @@ metadata:
   name: hello-train
   annotations:
     scenarios.ai.sap.com/name: "hello-ai"
-    scenarios.ai.sap.com/description: "Hello world scenario"
+    scenarios.ai.sap.com/description: "Hello scenario test"
     executables.ai.sap.com/name: "hello-train"
-    executables.ai.sap.com/description: "Simple hello world executable"
+    executables.ai.sap.com/description: "Hello workflow executable"
 
 labels:
   scenarios.ai.sap.com/id: "hello-ai"
@@ -24,4 +24,4 @@ spec:
         args:
           - |
             echo "Hello from SAP AI Core Workflow!"
-            sleep 5
+            sleep 2
