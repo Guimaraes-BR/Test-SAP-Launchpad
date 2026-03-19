@@ -2,20 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 
 metadata:
-  # Executable ID (use este valor quando criar a "configuration")
   name: hello-train
   annotations:
-    # Metadados do cenário e do executável (descritivos)
     scenarios.ai.sap.com/name: "hello-ai"
-    scenarios.ai.sap.com/description: "Hello scenario for SAP AI Core Free Tier"
-    executables.ai.sap.com/description: "Minimal hello-world training workflow"
+    scenarios.ai.sap.com/description: "Hello world scenario"
+    executables.ai.sap.com/name: "hello-train"
+    executables.ai.sap.com/description: "Simple hello world executable"
 
 labels:
-  # Scenario ID (use este valor quando criar a "configuration")
   scenarios.ai.sap.com/id: "hello-ai"
-  # Versão do executável (livre para você versionar)
   ai.sap.com/version: "1.0.0"
-  # Plano de recursos: "starter" é o plano do Free Tier
   ai.sap.com/resourcePlan: "starter"
 
 spec:
@@ -28,17 +24,4 @@ spec:
         args:
           - |
             echo "Hello from SAP AI Core Workflow!"
-            echo "Scenario: ${SCENARIO_ID}, Executable: ${EXEC_ID}"
             sleep 5
-        env:
-          - name: SCENARIO_ID
-            value: "hello-ai"
-          - name: EXEC_ID
-            valueFrom:
-              # Só para demo (usa o próprio metadata.name em claro)
-              # Em casos reais você pode parametrizar via 'arguments' ou 'configurations'
-              secretKeyRef:
-                # Dica: você pode remover este bloco e usar value: "hello-train"
-                # Mantido aqui apenas para ilustrar env; não é obrigatório.
-                name: dummy
-                key: dummy
